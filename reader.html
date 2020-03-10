@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 </head>
-
-<body>
-    <!--body onload="myFunction()"--->
+    
+    <body onload="myFunction()">
 
     <header>
         <div class="header">
@@ -22,9 +21,6 @@
             </div>
         </div>
     </header>
-    <!---->
-    <button onclick="myFunction()">Manga 1</button>
-    -->
     <div class="Reader Head">
         <h1>NOMBRE DEL MANGA :D</h1>
         <h2>Descripción del capitulo</h2>
@@ -57,14 +53,12 @@
 
     <script>
         function myFunction() {
-            for (var i = 1; i < 31; i++) {
+            for (var i = 0; i < 41; i++) {
                 var node = document.createElement("IMG");
                 var att = document.createAttribute("src");
-                if (i < 10) {
+                
                     att.value = `./manga/0${i}.jpg`;
-                } else {
-                    att.value = `./manga/${i}.jpg`;
-                }
+                
                 document.getElementById("reader").appendChild(node);
                 node.setAttributeNode(att);
             }
@@ -77,12 +71,12 @@
             var but = document.getElementById("TxExp");
             if (but.innerHTML === "Expandir") {
                 but.innerHTML = "Contraer";
-                for (var i = 1; i < 31; i++) {
+                for (var i = 0; i < 41; i++) {
                     document.getElementsByTagName("IMG")[i].style.width = "100%";
                 }
             } else {
                 but.innerHTML = "Expandir";
-                for (var i = 1; i < 31; i++) {
+                for (var i = 0; i < 41; i++) {
                     document.getElementsByTagName("IMG")[i].style.width = "75%";
                 }
             }
