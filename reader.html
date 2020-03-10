@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cleaned Raws</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+
+<body>
+    <!--body onload="myFunction()"--->
+
+    <header>
+        <div class="header">
+            <a href="#default" class="logo">CLEANNED RAWS</a>
+            <div class="nav">
+                <a class="btn active" href="#home"><i class="fa fa-home"></i>Home</a>
+                <a class="btn" href="#series"><i class="fa fa-th-list"></i>Series</a>
+            </div>
+        </div>
+    </header>
+    <!---->
+    <button onclick="myFunction()">Manga 1</button>
+    -->
+    <div class="Reader Head">
+        <h1>NOMBRE DEL MANGA :D</h1>
+        <h2>Descripción del capitulo</h2>
+        <p><i class="fa fa-arrow-left"></i>Sentido de lectura: De derecha a izquierda <i class="fa fa-arrow-left"></i></p>
+    </div>
+    <div class="Reader Options top" id="top">
+        <button><i class="fa fa-arrow-left"></i>Anterior</button>
+        <button><i class="fa fa-bars"></i>Capitulos</button>
+        <button onclick="Ajust()"><i id="IcoExp" class="fa fa-expand"></i><span id="TxExp">Expandir</span></button>
+        <button>Siguiente<i class="fa fa-arrow-right"></i></button>
+    </div>
+    <main class="container">
+        <div class="row">
+            <div class="Reader Cascade" id="reader">
+            </div>
+        </div>
+    </main>
+    <div class="Reader Options">
+        <button><i class="fa fa-arrow-left"></i>Anterior</button>
+        <button><i class="fa fa-bars"></i>Capitulos</button>
+        <button>Siguiente<i class="fa fa-arrow-right"></i></button>
+    </div>
+    <div class="footer">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-heart"></i>
+        <i class="fa fa-paypal"></i>
+        <p>WebSite Design ShiroLB - Copyright© 2020</p>
+    </div>
+
+    <script>
+        function myFunction() {
+            for (var i = 1; i < 31; i++) {
+                var node = document.createElement("IMG");
+                var att = document.createAttribute("src");
+                if (i < 10) {
+                    att.value = `./manga/0${i}.jpg`;
+                } else {
+                    att.value = `./manga/${i}.jpg`;
+                }
+                document.getElementById("reader").appendChild(node);
+                node.setAttributeNode(att);
+            }
+        }
+
+        function Ajust() {
+            var icono = document.getElementById("IcoExp");
+            icono.classList.toggle("fa-compress");
+
+            var but = document.getElementById("TxExp");
+            if (but.innerHTML === "Expandir") {
+                but.innerHTML = "Contraer";
+                for (var i = 1; i < 31; i++) {
+                    document.getElementsByTagName("IMG")[i].style.width = "100%";
+                }
+            } else {
+                but.innerHTML = "Expandir";
+                for (var i = 1; i < 31; i++) {
+                    document.getElementsByTagName("IMG")[i].style.width = "75%";
+                }
+            }
+        }
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("top").style.display='none';
+            } else {
+                document.getElementById("top").style.display='block';
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+
+</body>
+
+</html>
