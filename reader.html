@@ -57,7 +57,11 @@
                 var node = document.createElement("IMG");
                 var att = document.createAttribute("src");
                 
+                    if (i < 10) {
                     att.value = `./manga/0${i}.jpg`;
+                } else {
+                    att.value = `./manga/${i}.jpg`;
+                }
                 
                 document.getElementById("reader").appendChild(node);
                 node.setAttributeNode(att);
